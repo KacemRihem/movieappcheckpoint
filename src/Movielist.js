@@ -1,17 +1,17 @@
 import React from 'react';
 import ReactStars from "react-rating-stars-component";
 import MovieCard from './MovieCard'
+import { CardDeck, Card } from "react-bootstrap";
 
-function Movielist() {
+
+function Movielist(props) {
     return(
-        <div>
-            <MovieCard />
-            <ReactStars
-            count={5}
-            size={24}
-            activeColor="#ffd700"
-            />
-        </div>
+        <CardDeck>
+            {
+                props.movieList.map(el =><MovieCard el={el}/> )            
+            }
+            
+        </CardDeck>
     )
 }
 

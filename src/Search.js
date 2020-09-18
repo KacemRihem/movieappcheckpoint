@@ -6,8 +6,8 @@ function Search() {
         console.log(newRating);
     };
     return(
-        <div>
-            <input type="text" value="search" />;
+        <div className="search">
+            <input type="text" value="search" />
             <ReactStars
             count={5}
             onChange={ratingChanged}

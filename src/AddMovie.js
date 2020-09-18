@@ -1,36 +1,47 @@
-import React, {useState} from "react";
-import {Modal, Button} from "react-bootstrap";
+import React, { Component, useState } from "react";
+import { Modal, Button } from "react-bootstrap";
 
-function AddMovie() {
-    function Example() {
-        const [show, setShow] = useState(false);
-
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
-
+const AddModal = () => {
+    const [show, setShow] = useState(false);
     return (
-    <>
-        <Button variant="primary" onClick={handleShow}>
-            Launch demo modal
+    <div>
+        <Button variant="primary" onClick={() => setShow(!show)}>
+        +
         </Button>
-
-        <Modal show={show} onHide={handleClose}>
-            <Modal.Header closeButton>
-            <Modal.Title>Modal heading</Modal.Title>
-            </Modal.Header>
-            <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+        <Modal show={show} onHide={() => setShow(!show)}>
+        <Modal.Header closeButton>
+        <Modal.Title>Add new Movie</Modal.Title>        
+        </Modal.Header>
+        <Modal.Body>
+        <div>
+            <div>
+                <label className="input">Title:</label>               
+                <input type="text" name="name" />
+            </div>
+            <div>
+                <label className="input">Image:</label>           
+                <input type="text" name="image" />
+            </div>
+            <div>
+                <label className="input">Rating:</label>           
+                <input type="text" name="rating" />
+            </div>
+            <div>
+                <label className="input">Year:</label>              
+                <input type="text" name="year" />
+            </div>
+            </div>
+        </Modal.Body>
         <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-                Close
-            </Button>
-            <Button variant="primary" onClick={handleClose}>
-                Save Changes
-            </Button>
+        <Button variant="secondary" onClick={() => setShow(!show)}>
+            Close             
+        </Button>
+        <Button variant="primary">
+            Add Movie             
+        </Button>
         </Modal.Footer>
-        </Modal>
-    </>
-    );
-}
-}
-
-export default AddMovie;
+    </Modal>
+    </div>
+);
+};
+export default AddModal;
